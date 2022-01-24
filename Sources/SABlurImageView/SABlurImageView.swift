@@ -146,7 +146,6 @@ import QuartzCore
             let anim = CABasicAnimation(keyPath: Const.contentsAnimationKey)
             anim.fromValue = $0.element
             anim.toValue = cgImages[$0.offset + 1]
-            anim.fillMode = .forwards
             anim.isRemovedOnCompletion = false
             anim.duration = duration / TimeInterval(count)
             anim.beginTime = anim.duration * TimeInterval($0.offset)
@@ -155,7 +154,6 @@ import QuartzCore
         group.duration = duration
         group.delegate = self
         group.isRemovedOnCompletion = false
-        group.fillMode = .forwards
         _layer.add(group, forKey: Const.fadeAnimationKey)
         cgImages = cgImages.reversed()
     }
